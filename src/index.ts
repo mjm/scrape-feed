@@ -37,6 +37,14 @@ export async function scrapeFeed(
     return null
   }
 
+  if (!response.ok) {
+    throw new Error(
+      `Server returned unexpected response code ${response.status} ${
+        response.statusText
+      }`
+    )
+  }
+
   const type = response.headers.get("content-type")
 
   if (!type) {

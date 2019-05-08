@@ -27,3 +27,15 @@ test("returns null if a 304 Not Modified response is returned", async () => {
 
   scope.done()
 })
+
+test("throws error if an error occurs in the request", async () => {
+  const scope = nock("https://example.org")
+    .get("/feed.json")
+    .reply(500, "Internal Server Error")
+
+  expect(scrapeFeed("https://example.org/feed.json")).rejects.toThrow(
+    /unexpected response code/
+  )
+
+  scope.done()
+})
