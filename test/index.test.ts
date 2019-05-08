@@ -17,11 +17,13 @@ test("throws error for unrecognized feed types", async () => {
 test("returns null if a 304 Not Modified response is returned", async () => {
   const scope = nock("https://example.org")
     .matchHeader("If-None-Match", '"asdf"')
+    .matchHeader("If-Modified-Since", "2018-10-20T02:51:43Z")
     .get("/feed.json")
     .reply(304, "")
 
   const feed = await scrapeFeed("https://example.org/feed.json", {
     etag: '"asdf"',
+    lastModified: "2018-10-20T02:51:43Z",
   })
   expect(feed).toBe(null)
 
