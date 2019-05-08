@@ -21,17 +21,27 @@
   },
   "prettier": {
     "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
+    "semi": false,
     "trailingComma": "es5"
   },
   "devDependencies": {
     "@types/jest": "^24.0.12",
+    "@types/nock": "^10.0.2",
     "husky": "^2.2.0",
+    "nock": "^10.0.6",
     "prettier": "^1.17.0",
     "pretty-quick": "^1.10.0",
     "tsdx": "^0.5.7",
     "tslib": "^1.9.3",
     "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "@types/feedparser": "^2.2.2",
+    "@types/node-fetch": "^2.3.3",
+    "@types/type-is": "^1.6.2",
+    "feedparser": "^2.2.9",
+    "moment": "^2.24.0",
+    "node-fetch": "^2.5.0",
+    "type-is": "^1.6.18"
   }
 }
