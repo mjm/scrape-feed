@@ -1,6 +1,15 @@
 {
   "name": "scrape-feed",
   "version": "0.1.0",
+  "license": "ISC",
+  "author": {
+    "url": "https://www.mattmoriarity.com/",
+    "name": "Matt Moriarity"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mjm/scrape-feed.git"
+  },
   "main": "dist/index.js",
   "umd:main": "dist/scrape-feed.umd.production.js",
   "module": "dist/scrape-feed.es.production.js",
