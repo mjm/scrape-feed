@@ -29,9 +29,14 @@ export interface ScrapedEntry {
 export async function scrapeFeed(
   url: string,
   cachingHeaders: CachingHeaders = {}
-): Promise<ScrapedFeed> {
+): Promise<ScrapedFeed | null> {
   const headers = toRequestHeaders(cachingHeaders)
   const response = await fetch(url, { headers })
+
+  if (response.status === 304) {
+    return null
+  }
+
   const type = response.headers.get("content-type")
 
   if (!type) {
