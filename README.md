@@ -1,27 +1,21 @@
-# TSDX Bootstrap
+# scrape-feed
 
-This project was bootstrapped with [TSDX](https://github.com/jaredpalmer/tsdx).
+Reads the contents of JSON, RSS, and Atom feeds from a URL.
 
-## Local Development
+## Installation
 
-Below is a list of commands you will probably find useful.
+```
+npm install scrape-feed
+```
 
-### `npm start` or `yarn start`
+## Usage
 
-Runs the project in development/watch mode. Your project will be rebuilt upon changes. TSDX has a special logger for you convenience. Error messages are pretty printed and formatted for compatibility VS Code's Problems tab.
+```javascript
+const { scrapeFeed } = require("scrape-feed")
 
-<img src="https://user-images.githubusercontent.com/4060187/52168303-574d3a00-26f6-11e9-9f3b-71dbec9ebfcb.gif" width="600" />
+const feed = await scrapeFeed("https://www.mattmoriarity.com/feed.json")
+```
 
-Your library will be rebuilt if you make edits.
+`feed` will have information pulled from the feed. See `ScrapedFeed` in `src/index.ts` for the structure of `feed` here.
 
-### `npm run build` or `yarn build`
-
-Bundles the package to the `dist` folder.
-The package is optimized and bundled with Rollup into multiple formats (CommonJS, UMD, and ES Module).
-
-<img src="https://user-images.githubusercontent.com/4060187/52168322-a98e5b00-26f6-11e9-8cf6-222d716b75ef.gif" width="600" />
-
-### `npm test` or `yarn test`
-
-Runs the test watcher (Jest) in an interactive mode.
-By default, runs tests related to files changed since the last commit.
+`scrape-feed` supports JSON Feed as well as Atom and RSS through [feedparser](https://www.npmjs.com/package/feedparser). All feed types produce the same structure, so it's a bit lossy in that way: not all feed information is captured.
