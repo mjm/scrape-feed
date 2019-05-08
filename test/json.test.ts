@@ -27,7 +27,7 @@ test("reads a feed with some items", async () => {
   const feed = await scrapeFeed("https://example.org/feed.json")
   expect(feed).toMatchObject({
     title: "Example Blog",
-    homePageURL: "https://example.com",
+    homePageURL: "https://example.com/",
     entries: [
       {
         id: "123",

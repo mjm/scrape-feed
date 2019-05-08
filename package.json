@@ -48,9 +48,11 @@
     "@types/feedparser": "^2.2.2",
     "@types/node-fetch": "^2.3.3",
     "@types/type-is": "^1.6.2",
+    "@types/urijs": "^1.19.0",
     "feedparser": "^2.2.9",
     "moment": "^2.24.0",
     "node-fetch": "^2.5.0",
-    "type-is": "^1.6.18"
+    "type-is": "^1.6.18",
+    "urijs": "^1.19.1"
   }
 }

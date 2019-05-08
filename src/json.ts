@@ -2,6 +2,7 @@ import { Response } from "node-fetch"
 import moment from "moment"
 import { ScrapedFeed, ScrapedEntry } from "./"
 import { getCachingHeaders } from "./caching"
+import { normalizeURL } from "./url"
 
 // This is based off the spec for JSON Feed.
 // We're not validating this at runtime, but it makes it easier to write
@@ -45,7 +46,9 @@ export async function parseJsonFeed(res: Response): Promise<ScrapedFeed> {
 
   return {
     title: feedJson.title,
-    homePageURL: feedJson.home_page_url || "",
+    homePageURL: feedJson.home_page_url
+      ? normalizeURL(feedJson.home_page_url)
+      : "",
     cachingHeaders: getCachingHeaders(res),
     entries: feedJson.items.map(parseEntry),
   }

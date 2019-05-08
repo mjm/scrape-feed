@@ -2,6 +2,7 @@ import fetch from "node-fetch"
 import { is as typeis } from "type-is"
 import { toRequestHeaders } from "./caching"
 import { parseJsonFeed } from "./json"
+import { parseXmlFeed } from "./xml"
 
 export interface ScrapedFeed {
   title: string
@@ -40,6 +41,10 @@ export async function scrapeFeed(
   switch (typeis(type, ["json", "atom", "rss", "xml"])) {
     case "json":
       return await parseJsonFeed(response)
+    case "atom":
+    case "rss":
+    case "xml":
+      return await parseXmlFeed(response)
   }
 
   throw new Error(`No valid feed could be found at url ${url}`)
