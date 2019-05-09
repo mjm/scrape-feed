@@ -62,7 +62,7 @@ test("reads caching headers", async () => {
     })
 
   const feed = await scrapeFeed("https://example.org/feed.json")
-  expect(feed.cachingHeaders).toEqual({
+  expect(feed!.cachingHeaders).toEqual({
     etag: '"asdf"',
     lastModified: "2018-07-20T19:14:38",
   })
