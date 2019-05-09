@@ -1,5 +1,9 @@
 # scrape-feed
 
+[![npm version](https://img.shields.io/npm/v/scrape-feed.svg)](https://npm.im/scrape-feed)
+[![CircleCI](https://img.shields.io/circleci/project/github/mjm/scrape-feed/master.svg)](https://circleci.com/gh/mjm/scrape-feed)
+![ISC License](https://img.shields.io/npm/l/scrape-feed.svg)
+
 Reads the contents of JSON, RSS, and Atom feeds from a URL.
 
 ## Installation
