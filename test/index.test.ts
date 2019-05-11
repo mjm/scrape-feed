@@ -41,3 +41,16 @@ test("throws error if an error occurs in the request", async () => {
 
   scope.done()
 })
+
+test("returns all the items for a large feed", async () => {
+  const scope = nock("https://overreacted.io")
+    .get("/rss.xml")
+    .replyWithFile(200, __dirname + "/overreacted.xml", {
+      "content-type": "application/xml",
+    })
+
+  const { entries } = (await scrapeFeed("https://overreacted.io/rss.xml"))!
+  expect(entries.length).toBe(21)
+
+  scope.done()
+})

@@ -24,12 +24,14 @@ export async function parseXmlFeed(res: Response): Promise<ScrapedFeed> {
       while ((item = this.read())) {
         feed.entries.push(parseEntry(item))
       }
-
-      resolve(feed)
     })
 
     parser.on("error", function(err: any) {
       reject(err)
+    })
+
+    parser.on("end", function() {
+      resolve(feed)
     })
 
     res.body.pipe(parser)
