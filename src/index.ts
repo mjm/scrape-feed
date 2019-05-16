@@ -4,6 +4,8 @@ import { toRequestHeaders } from "./caching"
 import { parseJsonFeed } from "./json"
 import { parseXmlFeed } from "./xml"
 
+export { normalizeURL } from "./url"
+
 export interface ScrapedFeed {
   title: string
   homePageURL: string
