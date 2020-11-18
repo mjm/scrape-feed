@@ -41,7 +41,7 @@
     "nock": "^10.0.6",
     "prettier": "^1.17.0",
     "pretty-quick": "^1.10.0",
-    "semantic-release": "^15.13.13",
+    "semantic-release": "^17.2.3",
     "tsdx": "^0.5.7",
     "tslib": "^1.9.3",
     "typescript": "^3.4.5"
